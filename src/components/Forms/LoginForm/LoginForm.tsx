@@ -22,7 +22,11 @@ import {
   ErrorMessage,
 } from './styles';
 
-const LoginForm = () => {
+interface LoginProps {
+  recovery: () => void;
+}
+
+const LoginForm = ({ recovery }: LoginProps) => {
   const router = useRouter();
   const { setUser } = useAuth();
 
@@ -88,7 +92,7 @@ const LoginForm = () => {
         <Button type="submit" disabled={isSubmitting}>
           ENTRAR
         </Button>
-        <LinkText>
+        <LinkText onClick={recovery}>
           <span>Esqueceu sua senha?</span>
         </LinkText>
         <LinkText>
