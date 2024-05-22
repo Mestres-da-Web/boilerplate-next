@@ -20,13 +20,15 @@ import {
   LinkText,
   Label,
   ErrorMessage,
+  Span,
 } from './styles';
 
 interface LoginProps {
   recovery: () => void;
+  create: () => void;
 }
 
-const LoginForm = ({ recovery }: LoginProps) => {
+const LoginForm = ({ recovery, create }: LoginProps) => {
   const router = useRouter();
   const { setUser } = useAuth();
 
@@ -92,11 +94,12 @@ const LoginForm = ({ recovery }: LoginProps) => {
         <Button type="submit" disabled={isSubmitting}>
           ENTRAR
         </Button>
-        <LinkText onClick={recovery}>
-          <span>Esqueceu sua senha?</span>
+        <LinkText>
+          <Span onClick={recovery}>Esqueceu sua senha?</Span>
         </LinkText>
         <LinkText>
-          Não tem uma conta ainda? <span>Cadastre-se agora.</span>
+          Não tem uma conta ainda?{' '}
+          <Span onClick={create}>Cadastre-se agora.</Span>
         </LinkText>
       </FormContainer>
 

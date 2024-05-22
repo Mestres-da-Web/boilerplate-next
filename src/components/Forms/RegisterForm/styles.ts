@@ -18,6 +18,14 @@ export const FormContainer = styled.form`
   color: white;
 `;
 
+export const Image = styled.img`
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  max-width: 150px;
+  object-fit: scale-down;
+`;
+
 export const Title = styled.h1`
   width: 450px;
   font-size: 2rem;
@@ -82,6 +90,18 @@ export const Input = styled.input`
   }
 `;
 
+export const ErrorMessage = styled.h3`
+  width: 450px;
+  margin-top: 5px;
+  font-size: 8pt;
+  font-weight: 400;
+  color: ${({ theme }) => theme.colors.error};
+
+  @media (max-width: 1065px) {
+    width: 300px;
+  }
+`;
+
 export const Button = styled.button`
   width: 200px;
   padding: 0.75rem;
@@ -90,7 +110,7 @@ export const Button = styled.button`
   border-radius: 4px;
   color: white;
   font-size: 1rem;
-  margin: 3rem 0 2rem 0;
+  margin: 3rem 0 1rem 0;
   cursor: pointer;
 
   &:hover {
@@ -106,60 +126,6 @@ export const LinkText = styled.a`
     width: 300px;
     display: flex;
     flex-direction: column;
-  }
-`;
-
-export const ImageContainer = styled.div`
-  height: 100%;
-  width: 100%;
-  background-image: url('/img/control.png');
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.3);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  padding-bottom: 4rem;
-  gap: 1rem;
-
-  @media (max-width: 740px) {
-    display: none;
-  }
-`;
-
-export const Image = styled.img`
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  max-width: 150px;
-  object-fit: scale-down;
-`;
-
-export const OverlayText = styled.div`
-  color: #00d084;
-  font-size: 1.5rem;
-
-  @media (max-width: 1030px) {
-    font-size: 1rem;
-    text-align: center;
-  }
-`;
-
-export const LogoImg = styled.img`
-  max-width: 100%;
-  object-fit: scale-down;
-`;
-
-export const ErrorMessage = styled.h3`
-  width: 450px;
-  margin-top: 5px;
-  font-size: 8pt;
-  font-weight: 400;
-  color: ${({ theme }) => theme.colors.error};
-
-  @media (max-width: 1065px) {
-    width: 300px;
   }
 `;
 
