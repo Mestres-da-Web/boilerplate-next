@@ -108,10 +108,11 @@ export const NavLinkIcon = styled.div<NavLinkProps>`
   }
 `;
 
-export const NavLinkText = styled.p`
+export const NavLinkText = styled.p<NavLinkProps>`
   font-size: 1rem;
   font-weight: 600;
-  color: ${({ theme }) => theme.colors.default};
+  color: ${({ theme, selected }) =>
+    selected ? theme.colors.primary : theme.colors.default};
   overflow: hidden;
   white-space: nowrap;
   transition: all 0.2s;

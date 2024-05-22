@@ -59,7 +59,7 @@ const LoginForm = ({ recovery, create }: LoginProps) => {
       );
       localStorage.setItem(localStorageKeys.refreshToken, '123');
 
-      router.push('/users');
+      router.push('/home');
     } catch (error) {
       handleError(error);
     } finally {

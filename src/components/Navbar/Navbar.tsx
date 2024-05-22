@@ -1,5 +1,9 @@
-'use client';
-
+import {
+  IoConstructSharp,
+  IoFlashSharp,
+  IoLockClosed,
+  IoVideocam,
+} from 'react-icons/io5';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import {
@@ -26,34 +30,40 @@ const Navbar = () => {
       </LogoButton>
 
       <Nav open={expanded}>
-        <NavLink href="/users">
-          <NavLinkIcon selected={pathname.startsWith('/users')} />
-          <NavLinkText>Usuários</NavLinkText>
+        <NavLink href="/home">
+          <NavLinkIcon selected={pathname.startsWith('/home')}>
+            <IoFlashSharp />
+          </NavLinkIcon>
+          <NavLinkText selected={pathname.startsWith('/home')}>
+            Eventos do dia
+          </NavLinkText>
         </NavLink>
 
-        <NavLink href="/fields">
-          <NavLinkIcon selected={pathname.startsWith('/fields')} />
-          <NavLinkText>Campos cadastro</NavLinkText>
-        </NavLink>
-
-        <NavLink href="/plans">
-          <NavLinkIcon selected={pathname.startsWith('/plans')} />
-          <NavLinkText>Faturamento</NavLinkText>
-        </NavLink>
-
-        <NavLink href="/dashboard">
-          <NavLinkIcon selected={pathname.startsWith('/dashboard')} />
-          <NavLinkText>Dashboard</NavLinkText>
+        <NavLink href="/live">
+          <NavLinkIcon selected={pathname.startsWith('/live')}>
+            <IoVideocam />
+          </NavLinkIcon>
+          <NavLinkText selected={pathname.startsWith('/live')}>
+            Ao vivo
+          </NavLinkText>
         </NavLink>
 
         <NavLink href="/terms">
-          <NavLinkIcon selected={pathname.startsWith('/terms')} />
-          <NavLinkText>Termos de uso</NavLinkText>
+          <NavLinkIcon selected={pathname.startsWith('/terms')}>
+            <IoLockClosed />
+          </NavLinkIcon>
+          <NavLinkText selected={pathname.startsWith('/terms')}>
+            Termos de uso
+          </NavLinkText>
         </NavLink>
 
         <NavLink href="/config">
-          <NavLinkIcon selected={pathname.startsWith('/config')} />
-          <NavLinkText>Configurações</NavLinkText>
+          <NavLinkIcon selected={pathname.startsWith('/config')}>
+            <IoConstructSharp />
+          </NavLinkIcon>
+          <NavLinkText selected={pathname.startsWith('/config')}>
+            Configurações
+          </NavLinkText>
         </NavLink>
       </Nav>
 
