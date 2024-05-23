@@ -2,10 +2,12 @@ import {
   IoConstructSharp,
   IoFlashSharp,
   IoLockClosed,
+  IoLogOut,
   IoVideocam,
 } from 'react-icons/io5';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { useAuth } from '@/hooks/useAuth';
 import {
   LogoButton,
   LogoImg,
@@ -19,6 +21,8 @@ import {
 } from './styles';
 
 const Navbar = () => {
+  const { logout } = useAuth();
+
   const pathname = usePathname();
   const [expanded, setExpanded] = useState(true);
 
@@ -67,7 +71,10 @@ const Navbar = () => {
         </NavLink>
       </Nav>
 
-      <LogoutButton type="button">{expanded && 'Sair'}</LogoutButton>
+      <LogoutButton type="button" onClick={logout}>
+        <IoLogOut />
+        {expanded && 'Sair'}
+      </LogoutButton>
     </NavbarContainer>
   );
 };

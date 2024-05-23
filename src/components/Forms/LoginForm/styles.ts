@@ -167,3 +167,51 @@ export const Span = styled.span`
   color: #008856;
   cursor: pointer;
 `;
+
+export const RegisterText = styled.h3`
+  width: 450px;
+  font-size: 10pt;
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.white};
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  text-decoration: none;
+  margin-top: 1rem;
+
+  span {
+    color: ${({ theme }) => theme.colors.white};
+  }
+
+  label {
+    font-size: 10pt;
+    font-weight: 500;
+    color: ${({ theme }) => theme.colors.white};
+    user-select: none;
+  }
+
+  input {
+    height: 15px;
+    width: 15px;
+  }
+
+  @media (max-width: 1065px) {
+    width: 300px;
+  }
+`;
+
+export const CheckboxLabel = styled.label``;
+
+export const Field = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .icon {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    cursor: pointer;
+  }
+`;

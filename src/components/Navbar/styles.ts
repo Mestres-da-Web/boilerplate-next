@@ -132,7 +132,7 @@ export const Nav = styled.nav<NavProps>`
 
   display: flex;
   flex-direction: column;
-  gap: 0.875rem;
+  gap: 0.5rem;
 
   ${({ open }) =>
     open
@@ -160,7 +160,6 @@ export const LogoutButton = styled.button`
   margin-top: auto;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
 
   font-size: 1rem;
   font-weight: 600;
