@@ -18,9 +18,10 @@ import {
 
 interface RecoveryProps {
   back: () => void;
+  change: () => void;
 }
 
-const RecoveryForm = ({ back }: RecoveryProps) => {
+const RecoveryForm = ({ back, change }: RecoveryProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
@@ -35,7 +36,7 @@ const RecoveryForm = ({ back }: RecoveryProps) => {
     try {
       setIsSubmitting(true);
       handleSuccess('Link de redefinição de senha enviado.');
-      back();
+      change();
     } catch (error) {
       handleError(error);
     } finally {
