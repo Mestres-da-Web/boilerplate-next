@@ -34,8 +34,7 @@ const RecoveryForm = ({ back }: RecoveryProps) => {
   const onSubmit: SubmitHandler<IRecoveryForm> = async () => {
     try {
       setIsSubmitting(true);
-
-      handleSuccess('Nova senha enviada por e-mail.');
+      handleSuccess('Link de redefinição de senha enviado.');
       back();
     } catch (error) {
       handleError(error);
@@ -47,7 +46,7 @@ const RecoveryForm = ({ back }: RecoveryProps) => {
   return (
     <Container>
       <FormContainer onSubmit={handleSubmit(onSubmit)}>
-        <Image alt="logo" src="/img/logo2.svg" />
+        <Image src="/img/logo2.svg" alt="logo" />
         <Title>Recupere sua senha</Title>
         <SubTitle>Digite o e-mail da sua conta.</SubTitle>
         <Label>E-mail</Label>
