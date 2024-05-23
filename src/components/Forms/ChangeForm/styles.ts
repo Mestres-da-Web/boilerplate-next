@@ -137,6 +137,7 @@ export const Field = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  font-size: 0.8rem;
 
   .icon {
     position: absolute;

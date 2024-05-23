@@ -4,6 +4,10 @@ export type IRegisterForm = yup.InferType<typeof RegisterSchema>;
 
 export const RegisterSchema = yup.object({
   name: yup.string().required('Nome é obrigatório'),
+  date: yup.string().required('Data de nascimento é obrigatório'),
+  profission: yup.string(),
+  gender: yup.string().required('Sexo é obrigatório'),
+  phone: yup.string().required('Telefone é obrigatório'),
   email: yup
     .string()
     .required('E-mail é obrigatório')

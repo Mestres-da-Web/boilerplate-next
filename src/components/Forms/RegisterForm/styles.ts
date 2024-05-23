@@ -16,6 +16,14 @@ export const FormContainer = styled.form`
   flex-direction: column;
   background-color: #141414;
   color: white;
+  overflow-y: auto;
+`;
+
+export const Form = styled.div`
+  height: 100%;
+  overflow-y: auto;
+  padding: 1rem;
+  margin: 2rem 0;
 `;
 
 export const Image = styled.img`
@@ -39,7 +47,7 @@ export const Title = styled.h1`
 
 export const SubTitle = styled.p`
   width: 450px;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 
   @media (max-width: 1065px) {
     width: 300px;
@@ -49,7 +57,7 @@ export const SubTitle = styled.p`
 
 export const Label = styled.p`
   width: 450px;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   margin-bottom: 5px;
 
   @media (max-width: 1065px) {
@@ -62,12 +70,10 @@ export const Input = styled.input`
   background: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
   border-radius: 5px;
-
   padding: 0 1rem;
   width: 450px;
   height: 2.75rem;
   margin-top: 8px;
-
   font-size: 0.9rem;
   font-weight: 400;
   color: ${({ theme }) => theme.colors.black};
@@ -91,7 +97,8 @@ export const Input = styled.input`
 `;
 
 export const ErrorMessage = styled.h3`
-  width: 450px;
+  position: absolute;
+  bottom: -14px;
   margin-top: 5px;
   font-size: 8pt;
   font-weight: 400;
@@ -110,7 +117,6 @@ export const Button = styled.button`
   border-radius: 4px;
   color: white;
   font-size: 1rem;
-  margin: 3rem 0 1rem 0;
   cursor: pointer;
 
   &:hover {
@@ -123,7 +129,6 @@ export const LinkText = styled.a`
   margin-top: 1rem;
 
   @media (max-width: 1065px) {
-    width: 300px;
     display: flex;
     flex-direction: column;
   }
@@ -132,4 +137,46 @@ export const LinkText = styled.a`
 export const Span = styled.span`
   color: #008856;
   cursor: pointer;
+`;
+
+export const Field = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .icon {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    cursor: pointer;
+  }
+`;
+
+export const FieldRow = styled.div`
+  width: 450px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 1065px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+  }
+`;
+
+export const TermsText = styled.a`
+  display: flex;
+  gap: 5px;
+  width: 450px;
+  text-align: center;
+  align-self: center;
+  justify-content: center;
+  font-size: 0.8rem;
+
+  @media (max-width: 1065px) {
+    width: 300px;
+  }
 `;
