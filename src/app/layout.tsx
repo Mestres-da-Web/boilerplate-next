@@ -1,12 +1,19 @@
 import Providers from '@/components/Providers/Providers';
 import type { Metadata } from 'next';
-import { Roboto } from 'next/font/google';
+import { Inter } from 'next/font/google';
 
-const roboto = Roboto({ weight: '400', subsets: ['cyrillic'] });
+// importação de fontes
+
+const inter = Inter({
+  weight: ['300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+});
+
+//
 
 export const metadata: Metadata = {
-  title: 'Wisetip Apostador',
-  description: 'Wisetip Apostador',
+  title: 'Boilerplate Next',
+  description: 'Boilerplate Next',
 };
 
 const RootLayout = ({
@@ -16,7 +23,7 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="pt">
-      <body className={roboto.className}>
+      <body className={inter.className}>
         <Providers>{children}</Providers>
       </body>
     </html>

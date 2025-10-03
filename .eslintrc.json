@@ -18,11 +18,7 @@
     "ecmaVersion": 13,
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "@typescript-eslint",
-    "prettier"
-  ],
+  "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
     "global-require": "off",
     "no-console": "off",
@@ -32,11 +28,7 @@
     "arrow-body-style": "off",
     "no-undef": "off",
     "no-confusing-arrow": "off",
-    "no-restricted-globals": [
-      "error",
-      "event",
-      "fdescribe"
-    ],
+    "no-restricted-globals": ["error", "event", "fdescribe"],
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/no-use-before-define": "off",
@@ -69,9 +61,7 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".tsx"
-        ]
+        "extensions": [".tsx"]
       }
     ],
     "no-use-before-define": "off",

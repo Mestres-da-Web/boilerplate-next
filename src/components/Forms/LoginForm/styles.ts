@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-
   width: 100%;
   height: 100vh;
 `;
@@ -98,59 +97,6 @@ export const Button = styled.button`
   }
 `;
 
-export const LinkText = styled.a`
-  text-align: center;
-  margin-top: 1rem;
-
-  @media (max-width: 1065px) {
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-  }
-`;
-
-export const ImageContainer = styled.div`
-  height: 100%;
-  width: 100%;
-  background-image: url('/img/control.png');
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.3);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  padding-bottom: 4rem;
-  gap: 1rem;
-
-  @media (max-width: 740px) {
-    display: none;
-  }
-`;
-
-export const Image = styled.img`
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  max-width: 150px;
-  object-fit: scale-down;
-`;
-
-export const OverlayText = styled.div`
-  color: #00d084;
-  font-size: 1.5rem;
-
-  @media (max-width: 1030px) {
-    font-size: 1rem;
-    text-align: center;
-  }
-`;
-
-export const LogoImg = styled.img`
-  max-width: 100%;
-  object-fit: scale-down;
-`;
-
 export const ErrorMessage = styled.h3`
   width: 450px;
   margin-top: 5px;
@@ -161,11 +107,6 @@ export const ErrorMessage = styled.h3`
   @media (max-width: 1065px) {
     width: 300px;
   }
-`;
-
-export const Span = styled.span`
-  color: #008856;
-  cursor: pointer;
 `;
 
 export const RegisterText = styled.h3`

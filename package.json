@@ -1,5 +1,5 @@
 {
-  "name": "wisetip-apostador",
+  "name": "boilerplate",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,13 +14,10 @@
     "@svgr/webpack": "^8.1.0",
     "@tanstack/react-query": "^5.29.2",
     "axios": "^1.6.8",
-    "chart.js": "^4.4.2",
     "date-fns": "^3.6.0",
     "date-fns-tz": "^2.0.0",
     "next": "14.1.0",
-    "nextjs-progressbar": "^0.0.16",
     "react": "^18",
-    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18",
     "react-hook-form": "^7.49.2",
     "react-icons": "^4.12.0",

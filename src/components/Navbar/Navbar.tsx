@@ -1,13 +1,9 @@
-import {
-  IoConstructSharp,
-  IoFlashSharp,
-  IoLockClosed,
-  IoLogOut,
-  IoVideocam,
-} from 'react-icons/io5';
 import { useState } from 'react';
+import { IoConstructSharp, IoFlashSharp, IoLogOut } from 'react-icons/io5';
 import { usePathname } from 'next/navigation';
+
 import { useAuth } from '@/hooks/useAuth';
+
 import {
   LogoButton,
   LogoImg,
@@ -29,8 +25,7 @@ const Navbar = () => {
   return (
     <NavbarContainer>
       <LogoButton type="button" onClick={() => setExpanded(prev => !prev)}>
-        <LogoImg src="/img/logo_icon.svg" alt="logo" />
-        <LogoTextImg src="/img/logo_text.svg" alt="predial" open={expanded} />
+        imagem aqui
       </LogoButton>
 
       <Nav open={expanded}>
@@ -39,34 +34,16 @@ const Navbar = () => {
             <IoFlashSharp />
           </NavLinkIcon>
           <NavLinkText selected={pathname.startsWith('/home')}>
-            Eventos do dia
+            Home
           </NavLinkText>
         </NavLink>
 
         <NavLink href="/live">
           <NavLinkIcon selected={pathname.startsWith('/live')}>
-            <IoVideocam />
-          </NavLinkIcon>
-          <NavLinkText selected={pathname.startsWith('/live')}>
-            Ao vivo
-          </NavLinkText>
-        </NavLink>
-
-        <NavLink href="/terms">
-          <NavLinkIcon selected={pathname.startsWith('/terms')}>
-            <IoLockClosed />
-          </NavLinkIcon>
-          <NavLinkText selected={pathname.startsWith('/terms')}>
-            Termos de uso
-          </NavLinkText>
-        </NavLink>
-
-        <NavLink href="/config">
-          <NavLinkIcon selected={pathname.startsWith('/config')}>
             <IoConstructSharp />
           </NavLinkIcon>
-          <NavLinkText selected={pathname.startsWith('/config')}>
-            Configurações
+          <NavLinkText selected={pathname.startsWith('/live')}>
+            Tela 2
           </NavLinkText>
         </NavLink>
       </Nav>

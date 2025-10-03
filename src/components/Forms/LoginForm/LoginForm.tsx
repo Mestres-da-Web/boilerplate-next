@@ -1,38 +1,29 @@
-import { yupResolver } from '@hookform/resolvers/yup';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+
 import { ILoginForm, LoginSchema } from '@/validations/LoginSchema';
 import { localStorageKeys } from '@/utils/localStorageKeys';
-import { useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks/useAuth';
-import { useState } from 'react';
 import handleError from '@/utils/handleToast';
-import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
+
 import {
   Button,
   Container,
   FormContainer,
-  ImageContainer,
   Input,
-  LogoImg,
-  Image,
-  OverlayText,
   SubTitle,
   Title,
-  LinkText,
   Label,
   ErrorMessage,
-  Span,
   RegisterText,
   CheckboxLabel,
   Field,
 } from './styles';
 
-interface LoginProps {
-  recovery: () => void;
-  create: () => void;
-}
-
-const LoginForm = ({ recovery, create }: LoginProps) => {
+const LoginForm = () => {
   const router = useRouter();
   const { setUser } = useAuth();
 
@@ -52,15 +43,15 @@ const LoginForm = ({ recovery, create }: LoginProps) => {
     try {
       setIsSubmitting(true);
 
-      setUser({ id: 1, username: 'Apostador', email: 'apostador@gmail.com' });
+      setUser({ id: 1, username: 'User Test', email: 'user@gmail.com' });
 
       localStorage.setItem(localStorageKeys.accessToken, '123');
       localStorage.setItem(
         localStorageKeys.user,
         JSON.stringify({
           id: 1,
-          username: 'Apostador',
-          email: 'apostador@gmail.com',
+          username: 'User Test',
+          email: 'user@gmail.com',
         }),
       );
       localStorage.setItem(localStorageKeys.refreshToken, '123');
@@ -76,9 +67,9 @@ const LoginForm = ({ recovery, create }: LoginProps) => {
   return (
     <Container>
       <FormContainer onSubmit={handleSubmit(onSubmit)}>
-        <Image alt="" src="/img/logo2.svg" />
-        <Title>Seja bem vindo ao WiseTip</Title>
-        <SubTitle>Entre na sua conta para acessar as estatísticas.</SubTitle>
+        <Title>Seja bem vindo!</Title>
+        <SubTitle>Login Exemplo</SubTitle>
+
         <Label>E-mail</Label>
         <Input
           type="email"
@@ -129,19 +120,7 @@ const LoginForm = ({ recovery, create }: LoginProps) => {
         <Button type="submit" disabled={isSubmitting}>
           ENTRAR
         </Button>
-        <LinkText>
-          <Span onClick={recovery}>Esqueceu sua senha?</Span>
-        </LinkText>
-        <LinkText>
-          Não tem uma conta ainda?{' '}
-          <Span onClick={create}>Cadastre-se agora.</Span>
-        </LinkText>
       </FormContainer>
-
-      <ImageContainer>
-        <LogoImg alt="" src="/img/logo3.svg" />
-        <OverlayText>A PLATAFORMA DE STATS FEITA PARA VOCÊ</OverlayText>
-      </ImageContainer>
     </Container>
   );
 };
