@@ -41,6 +41,7 @@ const AuthContext = createContext({} as IUserProvider);
 const AuthProvider = ({ children }: ChildrenProps) => {
   const [user, setUser] = useState<User>({} as User);
   const [loading, setLoading] = useState(true);
+
   const pathname = usePathname();
 
   useEffect(() => {
