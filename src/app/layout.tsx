@@ -12,8 +12,11 @@ const inter = Inter({
 //
 
 export const metadata: Metadata = {
-  title: 'Boilerplate Next',
-  description: 'Boilerplate Next',
+  title: 'Estimulus',
+  description: 'Grupo Estímulos - Neurodesenvolvimento',
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 const RootLayout = ({

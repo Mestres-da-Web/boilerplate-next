@@ -21,6 +21,9 @@ import {
   RegisterText,
   CheckboxLabel,
   Field,
+  LogoWrapper,
+  BottomRow,
+  ForgotLink,
 } from './styles';
 
 const LoginForm = () => {
@@ -66,10 +69,15 @@ const LoginForm = () => {
 
   return (
     <Container>
-      <FormContainer onSubmit={handleSubmit(onSubmit)}>
-        <Title>Seja bem vindo!</Title>
-        <SubTitle>Login Exemplo</SubTitle>
+      <LogoWrapper>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/img/heart-logo.svg" alt="Estímulos" />
+      </LogoWrapper>
 
+      <Title>Área de acesso</Title>
+      <SubTitle>Insira seus dados para continuar</SubTitle>
+
+      <FormContainer onSubmit={handleSubmit(onSubmit)}>
         <Label>E-mail</Label>
         <Input
           type="email"
@@ -84,21 +92,19 @@ const LoginForm = () => {
           <Label>Senha</Label>
           <Input
             type={show ? 'text' : 'password'}
-            placeholder="Digite a senha"
+            placeholder="Digite sua senha"
             {...register('password')}
           />
           {show ? (
             <IoEyeOutline
               className="icon"
-              size={22}
-              color="black"
+              size={20}
               onClick={() => setShow(false)}
             />
           ) : (
             <IoEyeOffOutline
               className="icon"
-              size={22}
-              color="black"
+              size={20}
               onClick={() => setShow(true)}
             />
           )}
@@ -107,18 +113,22 @@ const LoginForm = () => {
           )}
         </Field>
 
-        <RegisterText>
-          <input
-            type="checkbox"
-            id="check"
-            name="check"
-            checked={checked}
-            onClick={() => setIsChecked(!checked)}
-          />
-          <CheckboxLabel>Lembrar-me</CheckboxLabel>
-        </RegisterText>
+        <BottomRow>
+          <RegisterText>
+            <input
+              type="checkbox"
+              id="check"
+              name="check"
+              checked={checked}
+              onClick={() => setIsChecked(!checked)}
+            />
+            <CheckboxLabel htmlFor="check">Manter conectado</CheckboxLabel>
+          </RegisterText>
+          <ForgotLink href="#">Esqueceu a senha?</ForgotLink>
+        </BottomRow>
+
         <Button type="submit" disabled={isSubmitting}>
-          ENTRAR
+          Entrar
         </Button>
       </FormContainer>
     </Container>

@@ -1,58 +1,85 @@
+'use client';
+
 import { useState } from 'react';
-import { IoConstructSharp, IoFlashSharp, IoLogOut } from 'react-icons/io5';
+import { IoLogOutOutline } from 'react-icons/io5';
+
 import { usePathname } from 'next/navigation';
 
 import { useAuth } from '@/hooks/useAuth';
+import ConfirmModal from '@/components/Modal/ConfirmModal';
 
 import {
-  LogoButton,
-  LogoImg,
-  LogoTextImg,
+  LogoArea,
+  LogoMark,
   LogoutButton,
   Nav,
   NavLink,
-  NavLinkIcon,
-  NavLinkText,
+  NavInnerCard,
   NavbarContainer,
 } from './styles';
 
+const navItems = [
+  { href: '/pacientes', label: 'Pacientes' },
+  { href: '/autorizacoes', label: 'Autorizações' },
+  { href: '/operacional', label: 'Operacional' },
+  { href: '/planos-de-saude', label: 'Planos de saúde' },
+  { href: '/financeiro', label: 'Financeiro' },
+  { href: '/empresas', label: 'Empresas' },
+  { href: '/configuracoes', label: 'Configurações' },
+];
+
 const Navbar = () => {
   const { logout } = useAuth();
-
   const pathname = usePathname();
-  const [expanded, setExpanded] = useState(true);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   return (
-    <NavbarContainer>
-      <LogoButton type="button" onClick={() => setExpanded(prev => !prev)}>
-        imagem aqui
-      </LogoButton>
+    <>
+      <NavbarContainer>
+        <NavInnerCard>
+          <LogoArea>
+            <LogoMark>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/img/heart-logo.svg" alt="Estímulos" />
+            </LogoMark>
+          </LogoArea>
 
-      <Nav open={expanded}>
-        <NavLink href="/home">
-          <NavLinkIcon selected={pathname.startsWith('/home')}>
-            <IoFlashSharp />
-          </NavLinkIcon>
-          <NavLinkText selected={pathname.startsWith('/home')}>
-            Home
-          </NavLinkText>
-        </NavLink>
+          <Nav>
+            {navItems.map(item => (
+              <NavLink
+                key={item.href}
+                href={item.href}
+                $selected={pathname.startsWith(item.href)}
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </Nav>
 
-        <NavLink href="/live">
-          <NavLinkIcon selected={pathname.startsWith('/live')}>
-            <IoConstructSharp />
-          </NavLinkIcon>
-          <NavLinkText selected={pathname.startsWith('/live')}>
-            Tela 2
-          </NavLinkText>
-        </NavLink>
-      </Nav>
+          <LogoutButton
+            type="button"
+            onClick={() => setShowLogoutModal(true)}
+            title="Sair"
+          >
+            <IoLogOutOutline />
+            <span>Sair</span>
+          </LogoutButton>
+        </NavInnerCard>
+      </NavbarContainer>
 
-      <LogoutButton type="button" onClick={logout}>
-        <IoLogOut />
-        {expanded && 'Sair'}
-      </LogoutButton>
-    </NavbarContainer>
+      <ConfirmModal
+        isOpen={showLogoutModal}
+        title="Sair?"
+        message="Caso saia, precisará fazer login novamente para acessar suas informações. Tem certeza que deseja sair?"
+        confirmLabel="Sair"
+        confirmVariant="danger"
+        onConfirm={() => {
+          setShowLogoutModal(false);
+          logout();
+        }}
+        onCancel={() => setShowLogoutModal(false)}
+      />
+    </>
   );
 };
 
